@@ -132,36 +132,39 @@ function ls() {
     eval command ls "$ls_opts" '"$@"'
 }
 
-
-
 #
 # LINUX GENERIC 
 #---------------------------------------------------------------
 # rc file shortcuts
-alias bashrc='vi ~/.bashrc'
-alias zshrc='vi ~/.zshrc'
-alias vimrc='vi ~/.vimrc'
-alias zsource='source ~/.zshrc'
+# download my profiles: "git clone https://github.com/roflia/profiles.git"
+export profiles=$HOME'/profiles'
+if [ "$profiles"  ]; then
+    alias bashrc='vi $profiles/bashrc'
+    alias zshrc='vi $profiles/zshrc'
+    alias vimrc='vi $profiles/vimrc'
+    alias zsource='$profiles/install.sh;source ~/.zshrc'
+else
+    alias bashrc='vi ~/.bashrc'
+    alias zshrc= 'vi ~/.zshrc'
+    alias vimrc= 'vi ~/.vimrc'
+    alias zsource='source ~/.zshrc'
+fi
+# zsh theme file
+alias theme='vi $profiles/agnosterof.zsh-theme'
 
 # python
 alias python='python3.7'
 alias pip='pip3'
 
-# zsh theme file
-alias theme='vi ~/profiles/agnosterof.zsh-theme'
-
 #
 # SCHOOL STUFF
 #---------------------------------------------------------------
-alias phys475='cd $documents/PHYS475'
-alias phys474='cd $documents/PHYS474'
-alias phys434='cd $documents/PHYS434'
-alias phys380='cd $documents/PHYS380'
-alias phys275='cd $documents/PHYS275'
-
-
-
-
+# note: documents='/mnt/c/Users/j4im/Documents'
+export phys475='$documents/PHYS475'
+export phys474='$documents/PHYS474'
+export phys434='$documents/PHYS434'
+export phys380='$documents/PHYS380'
+export phys275='$documents/PHYS275'
 
 
 
