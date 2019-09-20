@@ -148,7 +148,7 @@ alias python='python3.7'
 alias pip='pip3'
 
 # zsh theme file
-alias theme='vi /home/j4im/.oh-my-zsh/themes/agnoster.zsh-theme'
+alias theme='vi ~/profiles/agnosterof.zsh-theme'
 
 #
 # SCHOOL STUFF

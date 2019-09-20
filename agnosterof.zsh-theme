@@ -157,22 +157,24 @@ prompt_dir() {
 # Colored segment according to status
 prompt_sap() {
   local ref="$vcs_info_msg_0_"
+  local mystr=""
   if [[ $RETVAL -ne 0 ]]; then
-    prompt_segment red $PRIMARY_FG "" 
+    prompt_segment red $PRIMARY_FG $mystr 
   elif [[ -n "$ref" ]]; then
-    prompt_segment green $PRIMARY_FG "" 
+    prompt_segment green $PRIMARY_FG $mystr 
   else
-    prompt_segment yellow $PRIMARY_FG "" 
+    prompt_segment yellow $PRIMARY_FG $mystr 
   fi
 }
 prompt_sap_e() {
   local ref="$vcs_info_msg_0_"
+  local mystr=" "
   if [[ $RETVAL -ne 0 ]]; then
-    prompt_segment red $PRIMARY_FG " " 
+    prompt_segment red $PRIMARY_FG $mystr 
   elif [[ -n "$ref" ]]; then
-    prompt_segment green $PRIMARY_FG " " 
+    prompt_segment green $PRIMARY_FG $mystr
   else
-    prompt_segment yellow $PRIMARY_FG " " 
+    prompt_segment yellow $PRIMARY_FG $mystr
   fi
 }
 
