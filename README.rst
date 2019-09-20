@@ -1,7 +1,13 @@
-My custom rcfiles and profiles such as theme.
+My custom rcfiles and others. 
 
-Copyrights: j4im@edu.uwaterloo.ca
+j4im@edu.uwaterloo.ca
 
-.. todo::
-    add install function
+Installation
+----------------------------------------------
+
+Simply execute installation file 
+
+::
+
+    > ./install.sh
 
