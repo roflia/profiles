@@ -159,12 +159,12 @@ alias pip='pip3'
 #
 # SCHOOL STUFF
 #---------------------------------------------------------------
-# note: documents='/mnt/c/Users/j4im/Documents'
-export phys475='$documents/PHYS475'
-export phys474='$documents/PHYS474'
-export phys434='$documents/PHYS434'
-export phys380='$documents/PHYS380'
-export phys275='$documents/PHYS275'
+# note: documens='/mnt/c/Users/j4im/Documents'
+export phys475=$documents'/PHYS475'
+export phys474=$documents'/PHYS474'
+export phys434=$documents'/PHYS434'
+export phys380=$documents'/PHYS380'
+export phys275=$documents'/PHYS275'
 
 
 

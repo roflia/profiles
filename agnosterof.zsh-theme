@@ -120,10 +120,14 @@ prompt_end() {
 prompt_context() {
   local user=`whoami`
   local now=$( date +"%T" | cut -c 1-2 )
-  if [[ $now -gt 6 && $now -lt 18 ]]; then
-    local emoji=$SUN
+  if [[ $RETVAL -ne 0 ]]; then
+    local emoji=$FIRE 
   else
-    local emoji=$MOON
+    if [[ $now -gt 6 && $now -lt 18 ]]; then
+      local emoji=$SUN
+    else
+      local emoji=$MOON
+    fi
   fi
   if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
     #nextline example
