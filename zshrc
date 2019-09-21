@@ -109,7 +109,9 @@ source $ZSH/oh-my-zsh.sh
 export documents='/mnt/c/Users/j4im/Documents'
 export wallpapers='/mnt/c/Users/j4im/Pictures/wallpapers'
 alias bgswap='python ~/bgSwap/run.py'
-alias wp='python ~/bgSwap/run.py -l $wallpapers -t 60 -s &'
+alias wp='(&>/dev/null bgswap -f -l $wallpapers -t 60 -s &)'
+# Automatically start swapping screens
+(&>/dev/null bgswap -l $wallpapers/l -t 10 -s &)
 
 # Windows terminal option shortcuts
 export term_profile='/mnt/c/Users/j4im/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/profiles.json'
