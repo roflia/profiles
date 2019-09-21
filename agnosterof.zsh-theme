@@ -47,8 +47,6 @@ REVERSE_SEG="\ue0b2"
 KET="\ue0b1"
 BRA="\ue0b3"
 
-#PLUSMINUS="\u00b1"
-PLUSMINUS=""
 BRANCH="\ue0a0"
 DETACHED="\u27a6"
 PLUS="\u002b"
@@ -57,6 +55,7 @@ CROSS="\u2718"
 LIGHTNING="\u26a1"
 GEAR="\u2699"
 # Emojis
+DELTA="∆"
 SUN="\U1F31E"
 MOON="🌙"
 FOLDER="📂"
@@ -147,7 +146,7 @@ prompt_git() {
   if [[ -n "$ref" ]]; then
     if is_dirty; then
       color=yellow
-      ref="${ref} $PLUSMINUS "
+      ref="${ref} $DELTA "
     else
       color=white
       ref="${ref} $CHECK "
