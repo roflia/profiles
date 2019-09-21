@@ -102,40 +102,6 @@ source $ZSH/oh-my-zsh.sh
 #===============================================================
 # CUSTUM ZSH STUFF STARTS HERE
 #===============================================================
-#
-# WINDOWS TERMINAL 
-#---------------------------------------------------------------
-# Directory shortcuts
-export documents='/mnt/c/Users/j4im/Documents'
-export wallpapers='/mnt/c/Users/j4im/Pictures/wallpapers'
-alias bgswap='python ~/bgSwap/run.py'
-alias wp='(&>/dev/null bgswap -f -l $wallpapers -t 60 -s &)'
-# Automatically start swapping screens
-(&>/dev/null bgswap -l $wallpapers/l -t 10 -s &)
-
-# Windows terminal option shortcuts
-export term_profile='/mnt/c/Users/j4im/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/profiles.json'
-alias setting='vi $term_profile'
-
-# Function to create Windows-friendly path
-function FNC_PWDPS()
-{
-    echo $PWD | sed -e 's@/mnt/c@c:@g' -e 's@/mnt/d@d:@g' -e 's@/mnt/e@e:@g' -e 's@/@\/@g'
-}
-alias pwdps='echo $(FNC_PWDPS)'
-# Custom function to suppress WSL's symbolic link bug
-# and hide NTUSER files in windows home
-function ls() {
-    ls_opts="-h --color=auto"
-    if [ $# ]; then
-        if [ "$PWD" = "/mnt/c/Users/j4im" ]; then
-            ls_opts="$ls_opts --hide='ntuser.*' --hide='NTUSER.*'"
-        fi
-        eval command ls "$ls_opts" '"$@"' 2>/dev/null
-        return 0
-    fi
-    eval command ls "$ls_opts" '"$@"'
-}
 
 #
 # LINUX GENERIC 
@@ -160,6 +126,43 @@ alias theme='vi $profiles/agnosterof.zsh-theme'
 # python
 alias python='python3.7'
 alias pip='pip3'
+
+#
+# WINDOWS TERMINAL 
+#---------------------------------------------------------------
+# Directory shortcuts
+export documents='/mnt/c/Users/j4im/Documents'
+export wallpapers='/mnt/c/Users/j4im/Pictures/wallpapers'
+export term_profile='/mnt/c/Users/j4im/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/profiles.json'
+alias bgswap='python ~/bgSwap/run.py'
+alias wp='(bgswap -f -l $wallpapers -t 60 -s &)'
+alias wpl='(bgswap -f -l $wallpapers/l -t 10 -s &)'
+alias setting='vi $term_profile'
+# Automatically start swapping screens
+(bgswap -l $wallpapers -t 10 -s &)
+
+# Windows terminal option shortcuts
+
+# Function to create Windows-friendly path
+function FNC_PWDPS()
+{
+    echo $PWD | sed -e 's@/mnt/c@c:@g' -e 's@/mnt/d@d:@g' -e 's@/mnt/e@e:@g' -e 's@/@\/@g'
+}
+alias pwdps='echo $(FNC_PWDPS)'
+# Custom function to suppress WSL's symbolic link bug
+# and hide NTUSER files in windows home
+function ls() {
+    ls_opts="-h --color=auto"
+    if [ $# ]; then
+        if [ "$PWD" = "/mnt/c/Users/j4im" ]; then
+            ls_opts="$ls_opts --hide='ntuser.*' --hide='NTUSER.*'"
+        fi
+        eval command ls "$ls_opts" '"$@"' 2>/dev/null
+        return 0
+    fi
+    eval command ls "$ls_opts" '"$@"'
+}
+
 
 #
 # SCHOOL STUFF
