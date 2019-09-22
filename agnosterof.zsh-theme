@@ -46,7 +46,7 @@ SEGMENT_SEPARATOR="\ue0b0"
 REVERSE_SEG="\ue0b2"
 KET="\ue0b1"
 BRA="\ue0b3"
-
+BAR="\u2016"
 BRANCH="\ue0a0"
 DETACHED="\u27a6"
 PLUS="\u002b"
@@ -132,7 +132,7 @@ prompt_context() {
   if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
     #nextline example
     #prompt_segment magenta black "$KET $emoji\[%T\] %{%F{black}%}$KET %{%K{black}%}%{%F{magenta}%}$SEGMENT_SEPARATOR\n"
-    prompt_segment cyan black "$KET $emoji\[%T\] %{%F{black}%}\u2016 "
+    prompt_segment cyan black "$KET $emoji\[%T\] %{%F{black}%}"
   fi
 }
 
@@ -163,7 +163,7 @@ prompt_git() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment cyan black "%{%F{white}%}$FOLDER%{%F{black}%}%~/ %{%F{black}%}$KET"
+  prompt_segment cyan black " %{%F{white}%}$FOLDER%{%F{black}%}%~/ %{%F{black}%}$KET"
 }
 
 # Colored segment according to status
@@ -215,9 +215,8 @@ prompt_status() {
 # Display current virtual environment
 prompt_virtualenv() {
   if [[ -n $VIRTUAL_ENV ]]; then
-    color=cyan
-    prompt_segment $color $PRIMARY_FG
-    print -Pn " $(basename $VIRTUAL_ENV) "
+    prompt_segment cyan black 
+    print -Pn "$ALIEN($(basename $VIRTUAL_ENV))"
   fi
 }
 

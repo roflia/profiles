@@ -139,7 +139,7 @@ alias wp='(bgswap -f -l $wallpapers -t 60 -s &)'
 alias wpl='(bgswap -f -l $wallpapers/l -t 10 -s &)'
 alias setting='vi $term_profile'
 # Automatically start swapping screens
-(bgswap -l $wallpapers -t 10 -s &)
+(&>/dev/null bgswap -l $wallpapers -t 10 -s &)
 
 # Windows terminal option shortcuts
 
