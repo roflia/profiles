@@ -108,6 +108,9 @@ source $ZSH/oh-my-zsh.sh
 #---------------------------------------------------------------
 # rc file shortcuts
 # download my profiles: "git clone https://github.com/roflia/profiles.git"
+alias mv='mv -i'
+alias cp='cp -i'
+export DISPLAY=localhost:0.0
 export profiles=$HOME'/profiles'
 if [ "$profiles"  ]; then
     alias bashrc='vi $profiles/bashrc'
